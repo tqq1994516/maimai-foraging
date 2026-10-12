@@ -27,7 +27,7 @@
 
 ## 快速开始
 
-### 方式一：作为 WorkBuddy Skill 使用（推荐）
+### 作为 WorkBuddy Skill 使用
 
 1. **申请 MCP Token**：打开 https://open.mcd.cn/mcp ，手机号登录 → 右上角「控制台」→「激活」→ 一键复制 Token。
 2. **配置连接器**：WorkBuddy 左侧边栏【专家·技能·连接器】→【连接器】→ 右上角【自定义连接器】→【配置 MCP】，填入：
@@ -51,27 +51,6 @@
 4. **对话中使用**：
    - 「我刚领了麦辣鸡腿堡套餐的券，北京中关村附近哪家店能用的？」（路径 A）
    - 「我想吃巨无霸套餐，北京中关村附近哪家有？有没有券？」（路径 B）
-
-### 方式二：命令行直接运行（无需 AI 宿主）
-
-仅需 Python 3.8+，无第三方依赖：
-
-```bash
-export MCD_MCP_TOKEN="你的MCP_TOKEN"   # Windows PowerShell: $env:MCD_MCP_TOKEN="你的MCD_TOKEN"
-
-# 查附近门店
-python src/maimai_foraging.py nearby --city 北京 --keyword 中关村
-
-# 路径 A：领券后查询（--auto-claim 先一键领券）
-python src/maimai_foraging.py coupon-flow --city 北京 --keyword 中关村 --auto-claim
-
-# 路径 B：指定餐品查询
-python src/maimai_foraging.py meal-flow "巨无霸套餐" --city 北京 --keyword 中关村
-
-# 无 Token 时用内置演示数据离线体验两条流程
-python src/maimai_foraging.py --demo coupon-flow --city 北京 --keyword 中关村
-python src/maimai_foraging.py --demo meal-flow "巨无霸套餐" --city 北京 --keyword 中关村
-```
 
 ## 使用示例
 
@@ -116,8 +95,6 @@ maimai-foraging/
 ├── CONTEST_DECLARATION.md    # 参赛声明（官方模板，内容未改动）
 ├── MCP_INTEGRATION.md        # 麦当劳 MCP 集成说明：Server/Tool/调用流程/业务价值
 ├── workbuddy.md              # WorkBuddy 开发上下文（WorkBuddy 专项奖励核验用）
-├── src/
-│   └── maimai_foraging.py    # 可运行源代码：MCP 客户端 + 两条流程 CLI（仅标准库，含 --demo）
 ├── examples/
 │   ├── flow-a-coupon-first.md  # 路径 A 示例对话
 │   └── flow-b-meal-first.md    # 路径 B 示例对话
